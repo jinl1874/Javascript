@@ -23,7 +23,6 @@
     // 将手机版网页转为PC版
     function redirect(url) {
         try {
-            // https://www.wjx.cn/m/83481770.aspx
             var re = /(https:\/\/www\.wjx\.cn\/)(m|jq)(.*)g/
             var obj = re.exec(url);
             if (obj[2] == 'm') {
@@ -113,7 +112,7 @@
                     single_selection(lis);
                 }
             }
-            // 如果是填空题，用上面提前准备好的config文件来随机填写
+            // 如果是填空题，则调用对应的处理函数
             else if (textarea.length > 0) {
                 blanks(title, textarea);
             }
@@ -140,4 +139,4 @@
         // 暂停一下，免得被识别为机器人
         setTimeout(timeout(), 4000);
     }
-})
+})();
