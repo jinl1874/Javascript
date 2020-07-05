@@ -1,11 +1,7 @@
----
-title: JavaScript 学习笔记（1）：准备
-date: 2020-07-03 20:35:47
-tags:
-  - js
-categories:
-  - [JavaScript]
----
+#! https://zhuanlan.zhihu.com/p/156178542
+![Image](https://pic4.zhimg.com/80/v2-857bee96d74bfdb6dd3fd42ddb7768f0.jpg)
+
+# JavaScript 学习笔记（1）：基本语法
 
 #### 1. 准备
 
@@ -17,6 +13,8 @@ categories:
    ```html
    <script src="example.js"></script>
    ```
+4. 运行，打开浏览器的开发者模式，进入控制台，然后把代码放在输入框中，再点上面的`运行`即可运行代码，如图所示。
+   ![Image](https://pic4.zhimg.com/80/v2-6e5927f48e6c9f6eaac9ad93d2fa8767.png)
 
 #### 2. 语法
 
@@ -90,3 +88,98 @@ categories:
    ```js
    var name = test_obj("name");
    ```
+
+#### 3. 操作
+
+1. 加减乘除的符咒分别是`+-*/`，用法与其它的语言一样。
+2. 可以使用`i++`以用`i += 1`这种方式。
+3. js 的`+`可以将字符串与数值相连接，连接后是一个更长的字符串，如
+   ```js
+   var str = "101" + 11;
+   // str === "10111"
+   ```
+
+#### 4. 条件语句
+
+1. 与 C 语的中的用法一致，基本语法为：
+   ```js
+   if (condition) {
+     statement;
+   }
+   ```
+2. 比较操作符包括：大于(`>`)、小于(`<`)、大于等于(`>=`)、小于等于(`<=`)以及等于(`==`)与不等于(`!=`)。
+   其中要注意的是`==`不表示一定相等，比如下面的例子中，`a`与`b`是相等的。
+
+   ```js
+   var a = false;
+   var b = "";
+
+   if (a == b) {
+     alert("true");
+   }
+   ```
+
+   这个时候就需要另一种等号(`===`)，这个等号会进行严格的比较，同理，不相等要比较需要使用(`!==`)来比较。
+   我个人的建议是，一律使用`===`与`!==`。
+
+3. 逻辑操作符
+   与`&&`，或`||`，非`！`。
+
+#### 5. 循环
+
+1. while 循环。
+   ```js
+   while(condition){
+      statement；
+   }
+   ```
+2. do-while 循环。
+   ```js
+   do {
+     statement;
+   } while (condition);
+   ```
+3. for 循环
+   ```js
+   for (initial condition; test condition; alter condition) {
+       statement;
+   }
+   ```
+   实例：
+   ```js
+   for (let index = 0; index < 10; index++) {
+     console.log(index);
+   }
+   ```
+
+#### 6. 函数
+
+1. 定义示例函数：
+   ```js
+   // test是函数名，params是参数，true是返回值。
+   function test(params) {
+     alert(params);
+     return true;
+   }
+   ```
+2. 调用示例：
+   ```js
+   bool = test("Test!");
+   ```
+3. 变量作用域：如果函数内使用了 var 对象，那么就被视为局部变量，否则为全局变量。
+
+#### 7. 对象
+
+1. 对象是自包含的数据集合，包含在对象的数组可以通过属性(property)和方法(method)来访问。
+   js 里，属性和方法都使用“点”语法来访问。
+   ```js
+   object.property;
+   object.method();
+   ```
+2. 内建对象：一般使用`new`的关键字去新建一个对象的实例。如新建一个数组对象：
+
+   ```js
+   var array = new Array();
+   ```
+
+> 欢迎访问我的个人[博客](https://jinl1874.xyz)
