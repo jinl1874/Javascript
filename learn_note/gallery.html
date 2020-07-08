@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        #default {
+            width: 480px;
+            height: 270px;
+        }
+
+        #description {
+            color: grey;
+        }
+    </style>
+    <script src="show_pic.js"></script>
+
+</head>
+
+<body>
+    <h1>Snapshots</h1>
+    <ul>
+        <li>
+            <a onclick="show_pic(this); return false;" href="images/dog.jpg" title="a dog east something"> dog </a>
+        </li>
+        <li>
+            <a onclick="show_pic(this); return false;" href="images/follower.jpg" title="a follower ">follower</a>
+        </li>
+        <li>
+            <a onclick="show_pic(this); return false;" href="images/part.jpg" title="a part here">part</a>
+        </li>
+        <li>
+            <a onclick="show_pic(this); return false;" href="images/sea.jpg" title="the sea ">sea</a>
+        </li>
+        <li>
+            <a onclick="show_pic(this); return false;" href="images/star.jpg" title="water star">star</a>
+        </li>
+    </ul>
+
+    <img id="default" src="images/default.jpg" alt="My image gallery">
+    <p id="description">Choose an image</p>
+</body>
+
+</html>
