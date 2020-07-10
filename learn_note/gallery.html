@@ -14,6 +14,10 @@
         #description {
             color: grey;
         }
+
+        .pop_up {
+            color: bisque;
+        }
     </style>
     <script src="show_pic.js"></script>
 
@@ -41,6 +45,13 @@
 
     <img id="default" src="images/default.jpg" alt="My image gallery">
     <p id="description">Choose an image</p>
+    <a href="https://zhihu.com" onclick="pop_up(this.href); return false;">
+        知乎网
+    </a>
+
+    <a href="https://zhihu.com" class="pop_up">
+        知乎网
+    </a>
 </body>
 
 </html>

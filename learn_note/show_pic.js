@@ -20,4 +20,23 @@ function count_body() {
     alert(num);
 }
 
-// window.onload = count_body;
+function pop_up(url) {
+    window.open(url, "pop_up", "weight=300, height=400");
+}
+
+// window.onload = pop_up("https://zhihu.com");
+
+
+window.onload = prepare_links;
+function prepare_links() {
+    var links = document.getElementsByTagName("a");
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].getAttribute("class") === "pop_up") {
+            alert(links[i].getAttribute("href"));
+            links[i].onclick = function () {
+                pop_up(this.href);
+                return false;
+            }
+        }
+    }
+}
