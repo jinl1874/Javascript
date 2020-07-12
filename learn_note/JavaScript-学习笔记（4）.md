@@ -1,11 +1,7 @@
----
-title: JavaScript-学习笔记（4）：实践
-date: 2020-07-08 19:36:17
-tags:
-  - js
-categories:
-  - [JavaScript]
----
+#! https://zhuanlan.zhihu.com/p/158627969
+![Image](https://pic4.zhimg.com/80/v2-9f92869c4a82962c83d562e6b3f4bcd6.jpg)
+
+# JavaScript-学习笔记（4）：实践
 
 ### 平衡退化
 
@@ -31,13 +27,17 @@ categories:
 #### 2. 伪协议
 
 1. 真协议用来在计算机之间传输数据包，如 HTTP 协议。伪协议使用非标准化协议，可以通过一个链接来调用 js 函数。
-2. 具体应用：
+2. 用法：
+   ```js
+   <a href='javascript:pop_up("https://zhihu.com");'>知乎网</a>
+   ```
+3. 内嵌的事件处理函数的具体应用：
    ```html
    <a href="#" onclick="pop_up('https://zhihu.com'); return false;">
      知乎网
    </a>
    ```
-3. 上述代码同样无法平稳退化。要使得平稳退化，须得在 a 标签的 href 属性加上 url 链接。具体如下：
+4. 上述代码同样无法平稳退化。要使得平稳退化，须得在 a 标签的 href 属性加上 url 链接。具体如下：
 
    ```html
    <a
