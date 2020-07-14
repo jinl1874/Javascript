@@ -1,0 +1,19 @@
+#default {
+  width: 480px;
+  height: 270px;
+}
+#image_gallery li {
+  display: inline;
+}
+
+#description {
+  color: grey;
+}
+
+.pop_up {
+  color: bisque;
+}
+
+#image_gallery {
+  list-style: none;
+}

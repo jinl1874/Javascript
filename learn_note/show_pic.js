@@ -1,17 +1,21 @@
-// whic_pic 是元素结点
 function show_pic(whic_pic) {
-    // 获取href属性
+    if (!document.getElementById("default")) return false;
+    // 获取 href 属性
     var source = whic_pic.getAttribute("href");
     // 获取默认结点
     var placeholder = document.getElementById("default");
-    // 设置属性
-    placeholder.setAttribute("src", source);
-    // 获取title属性
-    var title = whic_pic.getAttribute("title");
-    // 获取p结点
-    var p_element = document.getElementById("description");
-    // 将p元素赋值给nodeValue
-    p_element.firstChild.nodeValue = title;
+    // 如果 id为 `description`存在，那么执行修改文字，否则忽略
+    if (document.getElementById("description")) {
+        // 设置属性
+        placeholder.setAttribute("src", source);
+        // 获取 title 属性
+        var title = whic_pic.getAttribute("title");
+        // 获取 p 结点
+        var p_element = document.getElementById("description");
+        // 将 p 元素赋值给 nodeValue
+        p_element.firstChild.nodeValue = title;
+    }
+    return true;
 }
 
 function count_body() {
@@ -26,17 +30,42 @@ function pop_up(url) {
 
 // window.onload = pop_up("https://zhihu.com");
 
-
-window.onload = prepare_links;
-function prepare_links() {
-    var links = document.getElementsByTagName("a");
+function prepare_gallery() {
+    if (!(document.getElementsByTagName || document.getElementById))
+        return false;
+    var gallery = document.getElementById("image_gallery");
+    if (!gallery) return false;
+    links = gallery.getElementsByTagName("a");
     for (var i = 0; i < links.length; i++) {
-        if (links[i].getAttribute("class") === "pop_up") {
-            alert(links[i].getAttribute("href"));
-            links[i].onclick = function () {
-                pop_up(this.href);
-                return false;
-            }
-        }
+        // alert(links[i])
+        links[i].onclick = function () {
+            return show_pic(this) ? false : true;
+        };
     }
 }
+// function prepare_links() {
+//     var links = document.getElementsByTagName("a");
+//     for (var i = 0; i < links.length; i++) {
+//         if (links[i].getAttribute("class") === "pop_up") {
+//             alert(links[i].getAttribute("href"));
+//             links[i].onclick = function () {
+//                 pop_up(this.href);
+//                 return false;
+//             }
+//         }
+//     }
+// }
+
+
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != "function") {
+        window.onload = func;
+    } else {
+        window.onload = function () {
+            oldonload();
+            func();
+        };
+    }
+}
+addLoadEvent(prepare_gallery)
